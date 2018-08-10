@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
+	// VARIABLES
+
+	public float availableMoney;
 	public List<ArtifactsScript> garage;
 	public int garageSpace;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
