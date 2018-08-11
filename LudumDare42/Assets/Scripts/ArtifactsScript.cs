@@ -7,7 +7,7 @@ public class ArtifactsScript : ScriptableObject {
 
 	public string artifactName;
 	public bool hasBeenBought;
-	public float moneyValue;
+	public int moneyValue;
 	public int spaceNeeded;
 	public CollectionsScript collection;
 	public Sprite graphic;

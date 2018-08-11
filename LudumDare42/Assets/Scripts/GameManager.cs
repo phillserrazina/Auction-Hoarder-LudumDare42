@@ -11,12 +11,19 @@ public class GameManager : MonoBehaviour {
 
 	[Header("Auction Variables")]
 	public bool auctionIsHappening;
+	public int currentOffer;
 	public Image artifactGraphic;
 	public ArtifactsScript currentArtifact;
+
+	[Header("User Interface")]
+	public Text offerText;
+	public Text raiseValueText;
+	public Text raiseUnitText;
 
 	private bool allArtifactsHaveBeenBought = false;
 
 	private PlayerScript player;
+	private OfferManager offerManager;
 
 	// FUNCTIONS
 
@@ -24,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	void Start () 
 	{
 		player = FindObjectOfType<PlayerScript> ();
+		offerManager = FindObjectOfType<OfferManager> ();
 
 		ResetArtifacts ();
 	}
@@ -31,6 +39,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		offerText.text = currentOffer.ToString ();
+		raiseValueText.text = offerManager.offerValue.ToString ();
+		raiseUnitText.text = offerManager.raiseValue.ToString ();
+
 		AuctionManager ();
 	}
 
@@ -45,6 +57,11 @@ public class GameManager : MonoBehaviour {
 			{
 				// ... get a new artifact
 				currentArtifact = GetNewArtifact ();
+
+				// Get value of Initial Offer
+				currentOffer = offerManager.GetNewOffer();
+
+				Debug.Log (string.Format("Current Artifacts Value: {0}; Current Offer: {1}", currentArtifact.moneyValue, currentOffer));
 
 				// Update the "Current Artifact" sprite,
 				artifactGraphic.sprite = currentArtifact.graphic;
@@ -78,7 +95,7 @@ public class GameManager : MonoBehaviour {
 		if (player.availableMoney > currentArtifact.moneyValue)
 		{
 			// ... remove the cost from the Player's funds ...
-			player.availableMoney -= currentArtifact.moneyValue;
+			player.availableMoney -= currentOffer;
 
 			// ... and mark the artifact has bought.
 			currentArtifact.hasBeenBought = true;
