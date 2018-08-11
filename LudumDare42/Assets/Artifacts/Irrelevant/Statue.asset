@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
+  m_Name: Statue
+  m_EditorClassIdentifier: 
+  artifactName: Bronze Statue
+  trueDescription: A statue made for a farmer as a gift from a satisfied costumer.
+  overDescription: A statue made for a high noble with the purest of gold.
+  underDescription: A piece of metal.
+  hasBeenBought: 0
+  moneyValue: 400
+  spaceNeeded: 2
+  collection: {fileID: 0}
+  graphic: {fileID: 21300000, guid: a622ae0695d0acc469db0858168b0795, type: 3}

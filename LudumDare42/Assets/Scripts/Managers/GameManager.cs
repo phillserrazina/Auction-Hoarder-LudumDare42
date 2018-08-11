@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour {
 	public bool auctionIsHappening;
 	public int initialOffer;
 	public int currentOffer;
+	public string artifactDescription;
 	public Image artifactGraphic;
 	public ArtifactsScript currentArtifact;
 
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour {
 	public Text raiseValueText;
 	public Text raiseUnitText;
 	public Text timerText;
+	public Text artifactDescriptionText;
 
 	[Header("Player Interface")]
 	public Text playerMoneyText;
@@ -69,6 +72,15 @@ public class GameManager : MonoBehaviour {
 		playerMoneyText.text = player.availableMoney.ToString ();
 		garageText.text = string.Format ("{0}/{1}", player.garageSpaceOccupied, player.totalGarageSpace);
 		timerText.text = timer.ToString ("F0");
+		artifactDescriptionText.text = artifactDescription;
+
+		if (Input.GetKeyUp(KeyCode.S))
+		{
+			if (SceneManager.GetActiveScene().name == "AuctionScene")
+				SceneManager.LoadScene ("GarageScene");
+			else
+				SceneManager.LoadScene ("AuctionScene");
+		}
 
 		if (gameOver != true)
 		{
@@ -229,12 +241,10 @@ public class GameManager : MonoBehaviour {
 				{
 					// ... that the AI raises the offer.
 					enemy.StartCoroutine ("RaiseOffer", aiOffer);
-
-					Debug.Log ("Bid on 0.2");
 				}
 				else
 				{
-					Debug.Log ("Fold on 0.2");
+					// AI folds.
 					enemy.madeChoice = true;
 				}
 			}
@@ -248,12 +258,10 @@ public class GameManager : MonoBehaviour {
 				{
 					// ... that the AI raises the offer.
 					enemy.StartCoroutine ("RaiseOffer", aiOffer);
-
-					Debug.Log ("Bid on 0.4");
 				}
 				else
 				{
-					Debug.Log ("Fold on 0.4");
+					// AI folds.
 					enemy.madeChoice = true;
 				}
 			}
@@ -267,12 +275,10 @@ public class GameManager : MonoBehaviour {
 				{
 					// ... that the AI raises the offer.
 					enemy.StartCoroutine ("RaiseOffer", aiOffer);
-
-					Debug.Log ("Bid on 0.6");
 				}
 				else
 				{
-					Debug.Log ("Fold on 0.6");
+					// AI folds.
 					enemy.madeChoice = true;
 				}
 			}
@@ -286,12 +292,10 @@ public class GameManager : MonoBehaviour {
 				{
 					// ... that the AI raises the offer.
 					enemy.StartCoroutine ("RaiseOffer", aiOffer);
-
-					Debug.Log ("Bid on 0.8");
 				}
 				else
 				{
-					Debug.Log ("Fold on 0.8");
+					// AI folds.
 					enemy.madeChoice = true;
 				}
 			}

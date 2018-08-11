@@ -95,6 +95,7 @@ public class OfferManager : MonoBehaviour {
 		if (Random.value < 0.15)
 		{
 			makeUnfairOffer = true;
+			gameManager.artifactDescription = gameManager.currentArtifact.underDescription;
 		}
 
 		// 15% chance of making a perfect offer
@@ -103,7 +104,11 @@ public class OfferManager : MonoBehaviour {
 		if (Random.value < 0.15 && makeUnfairOffer == false)
 		{
 			makePerfectOffer = true;
+			gameManager.artifactDescription = gameManager.currentArtifact.overDescription;
 		}
+
+		if (!makeUnfairOffer && !makePerfectOffer)
+			gameManager.artifactDescription = gameManager.currentArtifact.trueDescription;
 
 		// Get value for <$500 Artifacts
 		if (gameManager.currentArtifact.moneyValue <= 500)

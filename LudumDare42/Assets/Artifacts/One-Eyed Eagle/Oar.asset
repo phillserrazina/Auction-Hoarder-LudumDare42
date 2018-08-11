@@ -11,12 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
   m_Name: Oar
   m_EditorClassIdentifier: 
-  artifactName: 
-  trueDescription: 
-  overDescription: 
-  underDescription: 
+  artifactName: Holy Oar
+  trueDescription: 'A First-Mate from the Dibby Indigo wasn''t allowed a sword.
+
+    When the crew got close to the One-Eyed Eagle, the First-Mate
+
+    saved the Captain from a skeleton attack with this simple oar.'
+  overDescription: 'This oar was used by the Queen of Jospel herself to row her
+
+    tiny raft, after her royal ship was attacked by pirates.'
+  underDescription: 'This oar was found aboard of the Dibby Indigo, the ship who
+
+    found the One-Eyed Eagle.'
   hasBeenBought: 0
   moneyValue: 3000
   spaceNeeded: 0
   collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
-  graphic: {fileID: 0}
+  graphic: {fileID: 21300000, guid: 93e71dc77f2965347b3c929a8eabacce, type: 3}

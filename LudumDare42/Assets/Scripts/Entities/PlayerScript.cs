@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -10,4 +11,23 @@ public class PlayerScript : MonoBehaviour {
 	public List<ArtifactsScript> garage;
 	public int garageSpaceOccupied;
 	public int totalGarageSpace;
+
+	#region Singleton
+
+	public static PlayerScript instance;
+
+	private void Awake()
+	{
+		if (SceneManager.GetActiveScene().name == "AuctionScene")
+		{
+			if (instance == null)
+				instance = this;
+			else if (instance != this)
+				Destroy (gameObject);
+
+			DontDestroyOnLoad (gameObject);
+		}
+	}
+
+	#endregion
 }

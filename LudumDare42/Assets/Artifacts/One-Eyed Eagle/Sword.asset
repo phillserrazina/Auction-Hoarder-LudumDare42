@@ -11,12 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  artifactName: Rusty Sword
-  trueDescription: 
-  overDescription: 
-  underDescription: 
+  artifactName: Skeleton Sword
+  trueDescription: This sword was looted off of a skeleton corpse, after the final
+    battle for the One-Eyed Eagle sword.
+  overDescription: This sword was made for the King of Guiska with the finest pearls
+    and rubies that miners could find.
+  underDescription: A rusty sword that was salvaged from a sunken pirate ship.
   hasBeenBought: 0
-  moneyValue: 500
+  moneyValue: 4500
   spaceNeeded: 1
   collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
   graphic: {fileID: 21300000, guid: ab397cc6eb96b7d44b60afc28cdcdec9, type: 3}
