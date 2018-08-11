@@ -26,7 +26,5 @@ public class AI : MonoBehaviour {
 		gameManager.aiIsWinning = true;
 		gameManager.playerIsWinning = false;
 		gameManager.currentState = GameManager.States.PRE_TURN;
-
-		madeChoice = false;
 	}
 }

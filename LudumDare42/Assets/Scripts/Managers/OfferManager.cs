@@ -10,7 +10,6 @@ public class OfferManager : MonoBehaviour {
 
 	private GameManager gameManager;
 	private PlayerScript player;
-	private AI enemy;
 
 	// METHODS
 
@@ -18,28 +17,30 @@ public class OfferManager : MonoBehaviour {
 	{
 		gameManager = FindObjectOfType<GameManager> ();
 		player = FindObjectOfType<PlayerScript> ();
-		enemy = FindObjectOfType<AI> ();
 	}
 
 	public void SkipOffer()
 	{
-		player.availableMoney += gameManager.currentOffer;
+		gameManager.AIBuyArtifact ();
 		gameManager.auctionIsHappening = false;
+		offerValue = 0;
+		raiseValue = 1;
 	}
 
 	public void PlaceOffer()
 	{
-		if (offerValue > 0)
+		if (offerValue > 0 && player.availableMoney > gameManager.currentOffer && player.availableMoney > offerValue)
 		{
-			player.availableMoney -= offerValue;
 			gameManager.playerIsWinning = true;
 			gameManager.aiIsWinning = false;
-			gameManager.currentState = GameManager.States.PRE_TURN;
 			gameManager.currentOffer += offerValue;
 			offerValue = 0;
 			raiseValue = 1;
-
-			enemy.StopAllCoroutines ();
+			gameManager.currentState = GameManager.States.PRE_TURN;
+		}
+		else
+		{
+			Debug.Log ("Insuficient Funds!");
 		}
 	}
 
