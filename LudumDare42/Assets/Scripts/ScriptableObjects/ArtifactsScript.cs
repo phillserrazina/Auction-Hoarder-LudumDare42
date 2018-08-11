@@ -6,6 +6,9 @@ using UnityEngine;
 public class ArtifactsScript : ScriptableObject {
 
 	public string artifactName;
+	[TextArea] public string trueDescription;
+	[TextArea] public string overDescription;
+	[TextArea] public string underDescription;
 	public bool hasBeenBought;
 	public int moneyValue;
 	public int spaceNeeded;

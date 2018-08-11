@@ -8,5 +8,6 @@ public class PlayerScript : MonoBehaviour {
 
 	public int availableMoney;
 	public List<ArtifactsScript> garage;
-	public int garageSpace;
+	public int garageSpaceOccupied;
+	public int totalGarageSpace;
 }

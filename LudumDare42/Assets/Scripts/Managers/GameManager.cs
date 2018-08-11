@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour {
 	public Image artifactGraphic;
 	public ArtifactsScript currentArtifact;
 
-	[Header("User Interface")]
+	[Header("Auction Interface")]
 	public Text offerText;
 	public Text raiseValueText;
 	public Text raiseUnitText;
+
+	[Header("Player Interface")]
+	public Text playerMoneyText;
+	public Text garageText;
 
 	private bool allArtifactsHaveBeenBought = false;
 
@@ -42,6 +46,8 @@ public class GameManager : MonoBehaviour {
 		offerText.text = currentOffer.ToString ();
 		raiseValueText.text = offerManager.offerValue.ToString ();
 		raiseUnitText.text = offerManager.raiseValue.ToString ();
+		playerMoneyText.text = player.availableMoney.ToString ();
+		garageText.text = string.Format ("{0}/{1}", player.garageSpaceOccupied, player.totalGarageSpace);
 
 		AuctionManager ();
 	}
@@ -60,6 +66,8 @@ public class GameManager : MonoBehaviour {
 
 				// Get value of Initial Offer
 				currentOffer = offerManager.GetNewOffer();
+
+				player.availableMoney -= currentOffer;
 
 				Debug.Log (string.Format("Current Artifacts Value: {0}; Current Offer: {1}", currentArtifact.moneyValue, currentOffer));
 
@@ -92,21 +100,16 @@ public class GameManager : MonoBehaviour {
 	public void BuyArtifact()
 	{
 		// If the player has enough money ...
-		if (player.availableMoney > currentArtifact.moneyValue)
+		if (player.availableMoney > currentArtifact.moneyValue) 
 		{
-			// ... remove the cost from the Player's funds ...
-			player.availableMoney -= currentOffer;
+			// ... put the artifact in the Player's garage ...
+			player.garageSpaceOccupied += currentArtifact.spaceNeeded;
+			player.garage.Add (currentArtifact);
 
 			// ... and mark the artifact has bought.
 			currentArtifact.hasBeenBought = true;
 		}
-
-		else
-		{
-			Debug.Log ("Insuficient Funds!");
-		}
 	}
-
 
 	private ArtifactsScript GetNewArtifact()
 	{
@@ -126,7 +129,7 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < artifacts.Length; i++)
 		{
 			// If there is at least one that hasn't been bought ...
-			if (artifacts[i].hasBeenBought == false)
+			if (artifacts[i].hasBeenBought == false && player.availableMoney >= artifacts[i].moneyValue && (player.totalGarageSpace - player.garageSpaceOccupied) >= artifacts[i].spaceNeeded)
 			{
 				// ... there are artifacts available
 				return true;

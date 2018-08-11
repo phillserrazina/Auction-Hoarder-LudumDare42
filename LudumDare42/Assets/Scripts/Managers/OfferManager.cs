@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class OfferManager : MonoBehaviour {
 
+	// VARIABLES
 	public int offerValue;
 	public int raiseValue;
 
 	private GameManager gameManager;
+	private PlayerScript player;
+
+	// METHODS
 
 	private void Start()
 	{
 		gameManager = FindObjectOfType<GameManager> ();
+		player = FindObjectOfType<PlayerScript> ();
+	}
+
+	public void SkipOffer()
+	{
+		player.availableMoney += gameManager.currentOffer;
+		gameManager.auctionIsHappening = false;
 	}
 
 	public void PlaceOffer()
 	{
+		player.availableMoney -= offerValue;
 		gameManager.currentOffer += offerValue;
 		offerValue = 0;
 		raiseValue = 1;
