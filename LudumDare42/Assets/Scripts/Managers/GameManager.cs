@@ -7,10 +7,22 @@ public class GameManager : MonoBehaviour {
 
 	// VARIABLES
 
+	public enum States
+	{
+		PRE_TURN,
+		TURN
+	}
+
+	public States currentState;
+
+	public float timer;
+	public bool playerIsWinning;
+	public bool aiIsWinning;
 	public ArtifactsScript[] artifacts;
 
 	[Header("Auction Variables")]
 	public bool auctionIsHappening;
+	public int initialOffer;
 	public int currentOffer;
 	public Image artifactGraphic;
 	public ArtifactsScript currentArtifact;
@@ -19,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	public Text offerText;
 	public Text raiseValueText;
 	public Text raiseUnitText;
+	public Text timerText;
 
 	[Header("Player Interface")]
 	public Text playerMoneyText;
@@ -28,6 +41,7 @@ public class GameManager : MonoBehaviour {
 
 	private PlayerScript player;
 	private OfferManager offerManager;
+	private AI enemy;
 
 	// FUNCTIONS
 
@@ -36,6 +50,9 @@ public class GameManager : MonoBehaviour {
 	{
 		player = FindObjectOfType<PlayerScript> ();
 		offerManager = FindObjectOfType<OfferManager> ();
+		enemy = FindObjectOfType<AI> ();
+
+		currentState = States.PRE_TURN;
 
 		ResetArtifacts ();
 	}
@@ -48,8 +65,87 @@ public class GameManager : MonoBehaviour {
 		raiseUnitText.text = offerManager.raiseValue.ToString ();
 		playerMoneyText.text = player.availableMoney.ToString ();
 		garageText.text = string.Format ("{0}/{1}", player.garageSpaceOccupied, player.totalGarageSpace);
+		timerText.text = timer.ToString ("F0");
 
-		AuctionManager ();
+		timer -= Time.deltaTime;
+
+		StateManager ();
+	}
+
+	private void StateManager()
+	{
+		
+		switch (currentState) 
+		{
+		case States.PRE_TURN:
+
+			timer = 10;
+			AuctionManager ();
+
+			currentState = States.TURN;
+
+			break;
+		case States.TURN:
+
+			int aiOffer = (int)((float)initialOffer * ((float)initialOffer / (float)currentOffer + (Random.Range (0.5f, 1.5f))));
+
+			if (enemy.madeChoice == false)
+			{
+				Debug.Log (aiOffer);
+
+				if ((initialOffer / currentOffer) < 0.2)
+				{
+					if (Random.value < 0.25)
+					{
+						enemy.StartCoroutine ("RaiseOffer", aiOffer);
+					}
+				}
+				else if ((initialOffer / currentOffer) < 0.4)
+				{
+					if (Random.value < 0.5)
+					{
+						enemy.StartCoroutine ("RaiseOffer", aiOffer);
+					}
+				}
+				else if ((initialOffer / currentOffer) < 0.6)
+				{
+					if (Random.value < 0.7)
+					{
+						enemy.StartCoroutine ("RaiseOffer", aiOffer);
+					}
+				}
+				else if ((initialOffer / currentOffer) < 0.8)
+				{
+					if (Random.value < 0.9)
+					{
+						enemy.StartCoroutine ("RaiseOffer", aiOffer);
+					}
+				}
+				else if ((initialOffer / currentOffer) <= 1.0)
+				{
+					enemy.StartCoroutine ("RaiseOffer", aiOffer);
+				}
+			}
+
+			if (timer <= 0)
+			{
+				if (playerIsWinning)
+				{
+					BuyArtifact ();
+				}
+				else if (aiIsWinning)
+				{
+					offerManager.SkipOffer ();
+				}
+			}
+
+			break;
+		default:
+
+			Debug.LogWarning ("Unrecognized state! Set to Start by default.");
+
+			break;
+		}
 	}
 
 	private void AuctionManager()
@@ -66,6 +162,7 @@ public class GameManager : MonoBehaviour {
 
 				// Get value of Initial Offer
 				currentOffer = offerManager.GetNewOffer();
+				initialOffer = currentOffer;
 
 				player.availableMoney -= currentOffer;
 
@@ -108,6 +205,7 @@ public class GameManager : MonoBehaviour {
 
 			// ... and mark the artifact has bought.
 			currentArtifact.hasBeenBought = true;
+			auctionIsHappening = false;
 		}
 	}
 

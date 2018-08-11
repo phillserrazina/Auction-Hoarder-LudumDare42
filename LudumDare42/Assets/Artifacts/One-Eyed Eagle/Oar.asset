@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Name: Oar
   m_EditorClassIdentifier: 
   artifactName: 
+  trueDescription: 
+  overDescription: 
+  underDescription: 
   hasBeenBought: 0
-  moneyValue: 0
+  moneyValue: 3000
   spaceNeeded: 0
-  collection: {fileID: 0}
+  collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
   graphic: {fileID: 0}

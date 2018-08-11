@@ -11,8 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
   m_Name: Statue
   m_EditorClassIdentifier: 
-  artifactName: 
-  moneyValue: 0
-  spaceNeeded: 0
-  collection: {fileID: 0}
-  graphic: {fileID: 0}
+  artifactName: One-Eyed Eagle
+  trueDescription: 
+  overDescription: 
+  underDescription: 
+  hasBeenBought: 0
+  moneyValue: 10000
+  spaceNeeded: 2
+  collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
+  graphic: {fileID: 21300000, guid: a622ae0695d0acc469db0858168b0795, type: 3}

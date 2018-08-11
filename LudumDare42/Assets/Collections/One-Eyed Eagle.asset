@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5435f015b7be55a49b29c6c45fb94c7d, type: 3}
   m_Name: One-Eyed Eagle
   m_EditorClassIdentifier: 
-  name: 
+  collectionName: One-Eyed Eagle

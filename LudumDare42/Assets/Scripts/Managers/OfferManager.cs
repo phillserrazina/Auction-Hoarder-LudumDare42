@@ -10,6 +10,7 @@ public class OfferManager : MonoBehaviour {
 
 	private GameManager gameManager;
 	private PlayerScript player;
+	private AI enemy;
 
 	// METHODS
 
@@ -17,6 +18,7 @@ public class OfferManager : MonoBehaviour {
 	{
 		gameManager = FindObjectOfType<GameManager> ();
 		player = FindObjectOfType<PlayerScript> ();
+		enemy = FindObjectOfType<AI> ();
 	}
 
 	public void SkipOffer()
@@ -27,10 +29,18 @@ public class OfferManager : MonoBehaviour {
 
 	public void PlaceOffer()
 	{
-		player.availableMoney -= offerValue;
-		gameManager.currentOffer += offerValue;
-		offerValue = 0;
-		raiseValue = 1;
+		if (offerValue > 0)
+		{
+			player.availableMoney -= offerValue;
+			gameManager.playerIsWinning = true;
+			gameManager.aiIsWinning = false;
+			gameManager.currentState = GameManager.States.PRE_TURN;
+			gameManager.currentOffer += offerValue;
+			offerValue = 0;
+			raiseValue = 1;
+
+			enemy.StopAllCoroutines ();
+		}
 	}
 
 	public void RaiseOffer()
@@ -66,7 +76,7 @@ public class OfferManager : MonoBehaviour {
 			raiseValue = 1;
 			break;
 		default:
-			Debug.Log ("Unrecognized raise value! Reseted to 1");
+			Debug.LogWarning ("Unrecognized raise value! Set to 1 by default.");
 			raiseValue = 1;
 			break;
 		}

@@ -9,9 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
-  m_Name: Boat of One-Eyed
+  m_Name: Boat
   m_EditorClassIdentifier: 
-  moneyValue: 0
-  spaceNeeded: 0
-  collection: {fileID: 0}
-  graphic: {fileID: 0}
+  artifactName: The Dibby Indigo
+  trueDescription: 'The majestic boat that reached Nalord and made it possible for
+
+    the One-Eyed Eagle statue to be found.'
+  overDescription: 'A boat from the 13th century that King Manuity from Huder
+
+    navigated most of his life, along with his treasure.'
+  underDescription: An old boat that was found in the shore and repaired.
+  hasBeenBought: 0
+  moneyValue: 8000
+  spaceNeeded: 6
+  collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
+  graphic: {fileID: 21300000, guid: 91e566e4eadb1624e873ad4fabe5b92d, type: 3}
