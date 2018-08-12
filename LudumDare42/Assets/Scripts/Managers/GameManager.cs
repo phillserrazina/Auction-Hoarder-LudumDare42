@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour {
 
 	public States currentState;
 
-	public float timer;
+	public float timerTotal = 5;
+	private float timer;
 	public bool playerIsWinning;
 	public bool aiIsWinning;
 	public ArtifactsScript[] artifacts;
@@ -89,6 +90,10 @@ public class GameManager : MonoBehaviour {
 
 			StateManager ();
 		}
+		else
+		{
+			SceneManager.LoadScene ("GarageScene");
+		}
 			
 	}
 
@@ -101,7 +106,7 @@ public class GameManager : MonoBehaviour {
 		case States.PRE_TURN:
 
 			// ... reset the timer ...
-			timer = 10;
+			timer = timerTotal;
 
 			// ... and the AI ...
 			enemy.madeChoice = false;

@@ -20,11 +20,6 @@ public class PlayerScript : MonoBehaviour {
 	{
 		if (SceneManager.GetActiveScene().name == "AuctionScene")
 		{
-			if (instance == null)
-				instance = this;
-			else if (instance != this)
-				Destroy (gameObject);
-
 			DontDestroyOnLoad (gameObject);
 		}
 	}

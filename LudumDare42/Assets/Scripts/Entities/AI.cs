@@ -19,7 +19,7 @@ public class AI : MonoBehaviour {
 	{
 		madeChoice = true;
 
-		float timeToWait = Random.Range (1.5f, 2f);
+		float timeToWait = Random.Range (1.5f, 4.0f);
 
 		yield return new WaitForSeconds (timeToWait);
 
