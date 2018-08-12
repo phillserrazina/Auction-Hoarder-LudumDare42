@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour {
 
 	[Header("Player Interface")]
 	public Text playerMoneyText;
-	public Text garageText;
 
 	private bool allArtifactsHaveBeenBought = false;
 	private bool gameOver;
@@ -71,7 +70,6 @@ public class GameManager : MonoBehaviour {
 		raiseValueText.text = offerManager.offerValue.ToString ();
 		raiseUnitText.text = offerManager.raiseValue.ToString ();
 		playerMoneyText.text = player.availableMoney.ToString ();
-		garageText.text = string.Format ("{0}/{1}", player.garageSpaceOccupied, player.totalGarageSpace);
 		timerText.text = timer.ToString ("F0");
 		artifactDescriptionText.text = artifactDescription;
 
@@ -173,8 +171,6 @@ public class GameManager : MonoBehaviour {
 				currentOffer = offerManager.GetNewOffer();
 				initialOffer = currentOffer;
 
-//				Debug.Log (string.Format("Current Artifacts Value: {0}; Current Offer: {1}", currentArtifact.moneyValue, currentOffer));
-
 				// Update the "Current Artifact" sprite,
 				artifactGraphic.sprite = currentArtifact.graphic;
 
@@ -211,7 +207,7 @@ public class GameManager : MonoBehaviour {
 			player.availableMoney -= currentOffer;
 
 			// ... put the artifact in the Player's garage ...
-			player.garageSpaceOccupied += currentArtifact.spaceNeeded;
+//			player.garageSpaceOccupied += currentArtifact.spaceNeeded;
 			player.garage.Add (currentArtifact);
 
 			// ... and mark the artifact has bought.
@@ -325,7 +321,7 @@ public class GameManager : MonoBehaviour {
 			if (!artifacts[i].hasBeenBought)
 			{
 				// ... and the player has money and space for it ...
-				if (player.availableMoney >= artifacts[i].moneyValue && (player.totalGarageSpace - player.garageSpaceOccupied) >= artifacts[i].spaceNeeded)
+				if (player.availableMoney >= artifacts[i].moneyValue)
 					// Add it to the available list
 					availableArtifactsList.Add (artifacts [i]);
 			}
@@ -345,7 +341,7 @@ public class GameManager : MonoBehaviour {
 			if (artifacts[i].hasBeenBought == false)
 			{
 				// ... and the player has money and space for it ...
-				if (player.availableMoney >= artifacts[i].moneyValue && (player.totalGarageSpace - player.garageSpaceOccupied) >= artifacts[i].spaceNeeded)
+				if (player.availableMoney >= artifacts[i].moneyValue)
 					// ... there are artifacts available
 					return true;
 			}
