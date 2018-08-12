@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timerTotal: 5
+  timerTotal: 7
   playerIsWinning: 0
   aiIsWinning: 0
   artifacts:
