@@ -109,7 +109,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114572876534072518}
-        m_MethodName: RemoveSlot
+        m_MethodName: DisplayItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  artifactName: Miosk Sword
+  trueDescription: This sword belong to Miosk, general of the Muisio army, winner
+    of the Kilfori War.
+  overDescription: Sword forged at a smithing challenge. Handle made with gold and
+    jewels.
+  underDescription: Sword salvaged from a War Field. Has sentimental value.
+  hasBeenBought: 0
+  moneyValue: 2500
+  spaceNeeded: 3
+  collection: {fileID: 11400000, guid: b49049816bfc69941b2f06ac9ceac4de, type: 2}
+  graphic: {fileID: 21300000, guid: 1eb35fdcf3da15e43bea7d054eb8d16e, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BidDestroyer : MonoBehaviour {
 
-	private float timer = 0.5f;
+	private float timer = 1.0f;
 
 	// Update is called once per frame
 	void Update () 

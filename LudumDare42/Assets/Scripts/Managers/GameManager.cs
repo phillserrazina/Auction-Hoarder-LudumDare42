@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
 		offerManager = FindObjectOfType<OfferManager> ();
 		enemy = FindObjectOfType<AI> ();
 
+		player.availableMoney = player.totalMoney;
+
 		gameOver = false;
 		currentState = States.PRE_TURN;
 
@@ -226,7 +228,7 @@ public class GameManager : MonoBehaviour {
 	private void CalculateAIMove()
 	{
 		// Formula for the ammount of money that the AI bids.
-		int aiOffer = (int)((float)initialOffer * ((float)initialOffer / (float)currentOffer + Random.Range (0.2f, 0.5f)));
+		int aiOffer = (int)((float)initialOffer * ((float)initialOffer / (float)currentOffer - Random.Range (0.0f, ((float)initialOffer / (float)currentOffer))));
 
 		float howBigIsCurrentOffer = ((float)initialOffer / (float)currentOffer);
 

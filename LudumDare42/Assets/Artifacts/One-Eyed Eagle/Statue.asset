@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Name: Statue
   m_EditorClassIdentifier: 
   artifactName: One-Eyed Eagle
-  trueDescription: The statue of One-Eyed Eagle was one of the rarest discoveries
-    in the world. It is said that it was being guarded by skeletons, being this the
-    first time Men fought the Underworld.
-  overDescription: The statue of One-Eyed Eagle was one of the rarest discoveries
-    in the world. It is said that it was being guarded by skeletons, being this the
-    first time Men fought the Underworld.
+  trueDescription: The statue of One-Eyed Eagle was guarded by skeletons, being this
+    the first time Men fought the Underworld.
+  overDescription: The statue of One-Eyed Eagle was guarded by skeletons, being this
+    the first time Men fought the Underworld.
   underDescription: A fake, yet very realistic, version of the One-Eyed Eagle statue.
-  hasBeenBought: 0
+  hasBeenBought: 1
   moneyValue: 10000
   spaceNeeded: 2
   collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AI : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class AI : MonoBehaviour {
 	private GameManager gameManager;
 	public bool madeChoice;
 	public GameObject bidGraphic;
+
+	public Sprite[] bidGrahicSprites;
 
 	private void Start()
 	{
@@ -34,10 +37,14 @@ public class AI : MonoBehaviour {
 	private void ShowBidGraphic()
 	{
 		float leastX = -7;
-		float mostX = 7;
+		float mostX = -3;
 
-		float leastY = -3;
-		float mostY = 3;
+		float leastY = -2;
+		float mostY = 2;
+
+		Sprite newGraphic = bidGrahicSprites [Random.Range (0, bidGrahicSprites.Length - 1)];
+
+		bidGraphic.GetComponentInChildren<Image> ().sprite = newGraphic;
 
 		Vector3 pos = new Vector3 (Random.Range (leastX, mostX), Random.Range (leastY, mostY), bidGraphic.transform.position.z);
 

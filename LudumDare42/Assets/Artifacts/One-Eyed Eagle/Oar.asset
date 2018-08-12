@@ -27,4 +27,4 @@ MonoBehaviour:
   moneyValue: 3000
   spaceNeeded: 4
   collection: {fileID: 11400000, guid: 3f33f95623eb59a4b863c492c0fda138, type: 2}
-  graphic: {fileID: 21300000, guid: 93e71dc77f2965347b3c929a8eabacce, type: 3}
+  graphic: {fileID: 21300000, guid: 1c2e86283d9112e438ec280fb660824a, type: 3}

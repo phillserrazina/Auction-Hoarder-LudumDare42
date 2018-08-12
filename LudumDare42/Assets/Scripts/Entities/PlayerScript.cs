@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
 
 	// VARIABLES
 
+	public int totalMoney;
 	public int availableMoney;
 	public List<ArtifactsScript> garage;
 	public int garageSpaceOccupied;

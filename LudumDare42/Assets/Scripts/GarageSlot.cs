@@ -9,20 +9,24 @@ public class GarageSlot : MonoBehaviour {
 	public ArtifactsScript assignedArtifact;
 
 	private GarageManager garageManager;
-	private PlayerScript player;
 
 	// METHOD
 
 	void Start()
 	{
 		garageManager = FindObjectOfType<GarageManager> ();
-		player = FindObjectOfType<PlayerScript> ();
 	}
 
-	public void RemoveSlot()
+	public void DisplayItem()
 	{
-		player.garage.Remove (this.assignedArtifact);
+		garageManager.artifactNameText.text = assignedArtifact.artifactName;
+		garageManager.artifactDescriptionText.text = assignedArtifact.trueDescription;
+		garageManager.artifactGraphic.sprite = assignedArtifact.graphic;
 
-		garageManager.allItemsInCheck = false;
+		garageManager.menuButton.SetActive (false);
+		garageManager.spaceOccupiedObject.SetActive (false);
+		garageManager.artifactDisplayObject.SetActive (true);
+
+		garageManager.currentSlot = this.gameObject;
 	}
 }
