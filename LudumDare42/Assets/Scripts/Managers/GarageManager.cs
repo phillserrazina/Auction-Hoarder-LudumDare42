@@ -40,6 +40,7 @@ public class GarageManager : MonoBehaviour {
 	private List<GameObject> slotPrefabList = new List<GameObject>();
 	public GameObject currentSlot;
 	private PlayerScript player;
+	private AudioManager audioManager;
 
 	// FUNCTIONS
 
@@ -48,6 +49,7 @@ public class GarageManager : MonoBehaviour {
 		artifactsList = FindObjectOfType<PlayerScript> ().garage;
 		spaceTotal = FindObjectOfType<PlayerScript> ().totalGarageSpace;
 		player = FindObjectOfType<PlayerScript> ();
+		audioManager = FindObjectOfType<AudioManager> ();
 	}
 
 	void Update()
@@ -102,7 +104,10 @@ public class GarageManager : MonoBehaviour {
 			spaceOccupied += artifactsList[i].spaceNeeded;
 
 			if (waitTime)
+			{
+				audioManager.Play ("PlaceBidSE");
 				yield return new WaitForSeconds (0.4f);
+			}
 		}
 
 		waitTime = false;
@@ -134,7 +139,11 @@ public class GarageManager : MonoBehaviour {
 			finalScore += artifactsList [i].moneyValue;
 
 			if (waitTime)
+			{
+				audioManager.Play ("PlaceBidSE");
 				yield return new WaitForSeconds (0.4f);
+			}
+				
 		}
 
 		finalScore -= (player.totalMoney - player.availableMoney);

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
 	public States currentState;
 
-	public float timerTotal = 5;
+	public float timerTotal = 7;
 	private float timer;
 	public bool playerIsWinning;
 	public bool aiIsWinning;
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 	private PlayerScript player;
 	private OfferManager offerManager;
 	private AI enemy;
+	private AudioManager audioManager;
 
 	// FUNCTIONS
 
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour {
 		player = FindObjectOfType<PlayerScript> ();
 		offerManager = FindObjectOfType<OfferManager> ();
 		enemy = FindObjectOfType<AI> ();
+		audioManager = FindObjectOfType<AudioManager> ();
 
 		player.availableMoney = player.totalMoney;
 
@@ -209,6 +211,8 @@ public class GameManager : MonoBehaviour {
 //			player.garageSpaceOccupied += currentArtifact.spaceNeeded;
 			player.garage.Add (currentArtifact);
 
+			audioManager.Play ("WonBidSE");
+
 			// ... and mark the artifact has bought.
 			currentArtifact.hasBeenBought = true;
 			auctionIsHappening = false;
@@ -217,6 +221,8 @@ public class GameManager : MonoBehaviour {
 
 	public void AIBuyArtifact()
 	{
+		audioManager.Play ("LoseBidSE");
+
 		// Mark the artifact has bought.
 		currentArtifact.hasBeenBought = true;
 		auctionIsHappening = false;

@@ -13,9 +13,12 @@ public class AI : MonoBehaviour {
 
 	public Sprite[] bidGrahicSprites;
 
+	private AudioManager audioManager;
+
 	private void Start()
 	{
 		gameManager = FindObjectOfType<GameManager> ();
+		audioManager = FindObjectOfType<AudioManager> ();
 	}
 
 	IEnumerator RaiseOffer(int value)
@@ -26,6 +29,7 @@ public class AI : MonoBehaviour {
 
 		yield return new WaitForSeconds (timeToWait);
 
+		GetBidSound ();
 		ShowBidGraphic ();
 
 		gameManager.currentOffer += value;
@@ -49,5 +53,21 @@ public class AI : MonoBehaviour {
 		Vector3 pos = new Vector3 (Random.Range (leastX, mostX), Random.Range (leastY, mostY), bidGraphic.transform.position.z);
 
 		Instantiate (bidGraphic, pos, bidGraphic.transform.rotation);
+	}
+
+	private void GetBidSound()
+	{
+		float x = Random.value;
+
+		if (x < 0.2)
+			audioManager.Play ("Bid1");
+		else if (x < 0.4)
+			audioManager.Play ("Bid2");
+		else if (x < 0.6)
+			audioManager.Play ("Bid3");
+		else if (x < 0.8)
+			audioManager.Play ("Bid4");
+		else if (x < 1.0)
+			audioManager.Play ("Bid5");
 	}
 }

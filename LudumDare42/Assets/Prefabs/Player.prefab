@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8711f683272e003489c17d04ba302d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMoney: 10000
+  totalMoney: 50000
   availableMoney: 0
   garage: []
   garageSpaceOccupied: 0

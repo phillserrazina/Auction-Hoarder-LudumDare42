@@ -10,6 +10,7 @@ public class OfferManager : MonoBehaviour {
 
 	private GameManager gameManager;
 	private PlayerScript player;
+	private AudioManager audioManager;
 
 	// METHODS
 
@@ -17,6 +18,7 @@ public class OfferManager : MonoBehaviour {
 	{
 		gameManager = FindObjectOfType<GameManager> ();
 		player = FindObjectOfType<PlayerScript> ();
+		audioManager = FindObjectOfType<AudioManager> ();
 	}
 
 	public void SkipOffer()
@@ -25,6 +27,8 @@ public class OfferManager : MonoBehaviour {
 		gameManager.auctionIsHappening = false;
 		offerValue = 0;
 		raiseValue = 1;
+
+		audioManager.Play ("SkipBidSE");
 	}
 
 	public void PlaceOffer()
@@ -37,6 +41,8 @@ public class OfferManager : MonoBehaviour {
 			offerValue = 0;
 			raiseValue = 1;
 			gameManager.currentState = GameManager.States.PRE_TURN;
+
+			audioManager.Play ("PlaceBidSE");
 		}
 		else
 		{
@@ -47,12 +53,16 @@ public class OfferManager : MonoBehaviour {
 	public void RaiseOffer()
 	{
 		offerValue += raiseValue;
+		audioManager.Play ("UpBidSE");
 	}
 
 	public void DecreaseOffer()
 	{
 		if ((offerValue - raiseValue) >= 0)
+		{
 			offerValue -= raiseValue;
+			audioManager.Play ("DownBidSE");
+		}
 		else
 			offerValue = 0;
 	}

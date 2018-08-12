@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e5a4f65b38064fb525388a6a5e64d, type: 3}
+  m_Name: Locket
+  m_EditorClassIdentifier: 
+  artifactName: Kilui Locket
+  trueDescription: Locket offered to the Jhoedu prince as an honor symbol after almost
+    dying protecting the king.
+  overDescription: Locket offered to the King of Jhoedu as a surrender token in the
+    Ocear War.
+  underDescription: Locket found in spoils of war from the Ocear War.
+  hasBeenBought: 0
+  moneyValue: 5600
+  spaceNeeded: 2
+  collection: {fileID: 0}
+  graphic: {fileID: 21300000, guid: 85c26a9707ecdc849b64908a3908455f, type: 3}

@@ -1541,6 +1541,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e81009fd0a427a64b88a7808c5667aab, type: 2}
   - {fileID: 11400000, guid: cce8b3df5b14bd644ae83c5a97186adf, type: 2}
   - {fileID: 11400000, guid: 9876e3fcd4946034483dc0982e7eacdf, type: 2}
+  - {fileID: 11400000, guid: 2eeb09f931795a341b6c4555c966407f, type: 2}
+  - {fileID: 11400000, guid: fb92fffabfd21704fa31a537bdde2e9a, type: 2}
+  - {fileID: 11400000, guid: e13a7053f54f92a4ca07e25d32493e3d, type: 2}
   auctionIsHappening: 0
   initialOffer: 0
   currentOffer: 0

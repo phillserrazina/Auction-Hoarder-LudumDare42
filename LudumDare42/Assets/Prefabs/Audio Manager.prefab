@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1119376407342846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 442.4598, y: 237.92023, z: -0.21875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,5 +80,104 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UpBidSE
+    clip: {fileID: 8300000, guid: d5ac521789168fa458af28a724918537, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: DownBidSE
+    clip: {fileID: 8300000, guid: df1265d41bdc9ce4d9a1042a3dfa3163, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: PlaceBidSE
+    clip: {fileID: 8300000, guid: 17a61ae202432a44e810cc02af1dbaf1, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: SkipBidSE
+    clip: {fileID: 8300000, guid: 823263dee39a47e4899196ab6095da37, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Bid1
+    clip: {fileID: 8300000, guid: f6218a78b339b9b42816623eb0ea3f6f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Bid2
+    clip: {fileID: 8300000, guid: b72035ff733c74a499a47d0642a36c14, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Bid3
+    clip: {fileID: 8300000, guid: 4e60a3083d8b3ba4397b58a2795d80e3, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Bid4
+    clip: {fileID: 8300000, guid: 949507098f936db4e8c41d7dd510f36b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Bid5
+    clip: {fileID: 8300000, guid: 234d792bfb3a50b47b385913b43fbe5e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: WonBidSE
+    clip: {fileID: 8300000, guid: 3a2733d1c9909424d8413de8a91448e0, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: LoseBidSE
+    clip: {fileID: 8300000, guid: cc278593e19069540aa2bf3f5e81e258, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
