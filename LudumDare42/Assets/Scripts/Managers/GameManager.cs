@@ -75,12 +75,9 @@ public class GameManager : MonoBehaviour {
 		timerText.text = timer.ToString ("F0");
 		artifactDescriptionText.text = artifactDescription;
 
-		if (Input.GetKeyUp(KeyCode.S))
+		if (Input.GetKeyUp(KeyCode.Escape))
 		{
-			if (SceneManager.GetActiveScene().name == "AuctionScene")
-				SceneManager.LoadScene ("GarageScene");
-			else
-				SceneManager.LoadScene ("AuctionScene");
+			SceneManager.LoadScene ("MainMenuScene");
 		}
 
 		if (gameOver != true)
